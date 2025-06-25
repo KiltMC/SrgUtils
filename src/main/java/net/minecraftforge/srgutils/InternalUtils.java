@@ -470,7 +470,7 @@ class InternalUtils {
                         cls = ret.addClass(Arrays.copyOfRange(parts, 1, parts.length));
                         stack.push(TinyV2State.CLASS);
                     } else { // Comment
-                        String comment = unescapeTinyString(parts[1]);
+                        String comment = parts.length == 1 ? "" : unescapeTinyString(parts[1]);
                         switch (stack.peek()) {
                             case CLASS:
                                 if (cls == null) throw tiny2Exception(x, line);
